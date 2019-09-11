@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="module">
+        import '../articule-modal.js'
+    </script>
+    <title>Articule Modal Demo</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+    *{
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+<body>
+    <button onclick="abrirModal()">Open Modal</button>
+    <articule-modal
+        id="modal"
+        img="https://www.cp.com/content/dam/brands/Chicago%20Pneumatic/construction-technique/portable-energy-division/images/1-compressors/1-products/red-rock-compressor-product-shot-CPS-2-0-pack-right.psd/jcr:content/renditions/cq5dam.web.950.950.jpeg" 
+        price="$100,000"
+        name="Compresor de Aire"
+        description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime delectus blanditiis, quis optio iusto exercitationem! Ad, eos provident consequatur nobis perferendis a sunt incidunt perspiciatis eius amet similique pariatur fugit."
+        shippingTime="10 días"
+    ></articule-modal>
+</body>
+<script>
+
+    document.addEventListener('add-to-car', (e)=>{
+        console.log(e.detail);
+    })
+
+    document.addEventListener('shop-now', (e)=>{
+        console.log(e.detail);
+    })
+
+    const articuleModal = document.getElementById('modal');
+
+    function abrirModal(){
+        articuleModal.open = true;
+    }
+</script>
+</html>
