@@ -56,7 +56,7 @@ class ArticuleModal extends LitElement {
     return html`
         <paper-dialog id="modal" modal>
             <div id="cont-btn-close">
-                <paper-icon-button-light dialog-confirm autofocus>
+                <paper-icon-button-light @click="${this.closeClicked}">
                     <button title="close">
                         <iron-icon icon="icons:close"></iron-icon>
                     </button>
@@ -116,6 +116,15 @@ class ArticuleModal extends LitElement {
         }
         let event = new CustomEvent('shop-now', {
             detail: articuleData,
+            bubbles: true,
+            composed: true 
+        });
+        this.dispatchEvent(event);
+    }
+
+    closeClicked(){
+        let event = new CustomEvent('close-clicked', {
+            detail: 'close',
             bubbles: true,
             composed: true 
         });
